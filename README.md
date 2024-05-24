@@ -35,7 +35,7 @@ User messages Page url
   GET http://localhost:3000/entries
 ```
 
-#### Add item
+#### Add message
 
 ```http
   GET http://localhost:3000/entries
