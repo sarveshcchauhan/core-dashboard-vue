@@ -1,5 +1,5 @@
 <template>
-  <section class="flex-1 bg-white rounded-lg p-6">
+  <section class="flex-1 bg-white rounded-lg p-6 overflow-auto">
     <div class="flex items-center mb-4">
       <img
         src="https://fakeimg.pl/80x80?text=User"
@@ -27,11 +27,10 @@
     </div>
 
     <div class="mb-4">
-      <label class="text-slate-800 font-semibold">Private note</label>
-      <textarea
-        class="w-full border border-gray-300 rounded-lg px-4 py-2"
-        placeholder="Private note"
-      ></textarea>
+      <span class="text-slate-800 font-semibold">Private note</span>
+      <div class="mt-3 h-40">
+        <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
+      </div>
     </div>
 
     <div class="flex items-center mb-4">
@@ -96,10 +95,16 @@
     </div>
   </section>
 </template>
-
+<style>
+.ck-editor__editable {
+  height: 100px !important;
+}
+</style>
 <script>
 import { faAdd, faMessage } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+
 library.add(faAdd, faMessage)
 
 export default {
@@ -122,12 +127,13 @@ export default {
           price: '$64.00',
           date: 'Apr 9, 2021'
         }
-      ]
+      ],
+      editor: ClassicEditor,
+      editorData: '',
+      editorConfig: {
+        toolbar: ['bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote']
+      }
     }
   }
 }
 </script>
-
-<style scoped>
-/* Scoped styles specific to CustomerDetails.vue */
-</style>
