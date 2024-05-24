@@ -1,41 +1,47 @@
-# CoreDashboard
+## Installation Guide
 
-This template should help get you started developing with Vue 3 in Vite.
+```bash
+  git clone https://github.com/sarveshcchauhan/core-dashboard-vue
 
-## Recommended IDE Setup
+  cd core-dashboard-vue
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+  npm install
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
 ```
 
-### Compile and Hot-Reload for Development
+Run the mock server to fetch and add messages
 
-```sh
-npm run dev
+```bash
+  npm run json-server
 ```
 
-### Compile and Minify for Production
+Spin the server
 
-```sh
-npm run build
+```bash
+  npm run dev
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+User messages Page url
 
-```sh
-npm run test:unit
+```bash
+  http://{REPLACE_WITH_YOUR_URL}/user
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## API Reference
 
-```sh
-npm run lint
+#### Get all messages
+
+```http
+  GET http://localhost:3000/entries
 ```
+
+#### Add item
+
+```http
+  GET http://localhost:3000/entries
+```
+
+| Parameter | Type     | Description      |
+| :-------- | :------- | :--------------- |
+| `name`    | `string` | add user name    |
+| `message` | `string` | add user message |
