@@ -9,7 +9,7 @@
         <h2 class="text-xs font-semibold mb-4 text-slate-500 ml-2">Name</h2>
       </label>
     </div>
-    <div class="space-y-0 divide-y pt-3">
+    <div class="space-y-0 divide-y">
       <label
         class="group flex justify-between items-center cursor-pointer items-start gap-4 p-4 transition hover:bg-gray-200 hover:rounded-lg"
         v-for="customer in customers"
@@ -30,43 +30,71 @@
           </div>
         </div>
         <div class="icon-block">
-          <font-awesome-icon
-            class="hidden group-hover:inline text-slate-400"
-            icon="chevron-right"
-          />
+          <ChevronRight class="hidden group-hover:inline text-slate-400" :size="20" />
         </div>
       </label>
     </div>
   </section>
 </template>
 
-<script>
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core'
-library.add(faChevronRight)
+<script setup>
+import { ref } from 'vue'
+import { ChevronRight } from 'lucide-vue-next'
 
-export default {
-  data() {
-    return {
-      customers: [
-        {
-          id: 1,
-          name: 'Chelsie Haley',
-          username: 'chelsiehaly',
-          avatar: 'https://fakeimg.pl/40x40?text=User'
-        },
-        {
-          id: 2,
-          name: 'Orion Luettgen',
-          username: 'orionluettgen',
-          avatar: 'https://fakeimg.pl/40x40?text=User'
-        }
-      ]
-    }
+const customers = ref([
+  {
+    id: 1,
+    name: 'Chelsie Haley',
+    username: 'chelsiehaly',
+    avatar: 'https://fakeimg.pl/40x40?text=User'
+  },
+  {
+    id: 2,
+    name: 'Orion Luettgen',
+    username: 'orionluettgen',
+    avatar: 'https://fakeimg.pl/40x40?text=User'
+  },
+  {
+    id: 3,
+    name: 'Orion Luettgen',
+    username: 'orionluettgen',
+    avatar: 'https://fakeimg.pl/40x40?text=User'
+  },
+  {
+    id: 2,
+    name: 'Orion Luettgen',
+    username: 'orionluettgen',
+    avatar: 'https://fakeimg.pl/40x40?text=User'
+  },
+  {
+    id: 3,
+    name: 'Orion Luettgen',
+    username: 'orionluettgen',
+    avatar: 'https://fakeimg.pl/40x40?text=User'
+  },
+  {
+    id: 2,
+    name: 'Orion Luettgen',
+    username: 'orionluettgen',
+    avatar: 'https://fakeimg.pl/40x40?text=User'
+  },
+  {
+    id: 3,
+    name: 'Orion Luettgen',
+    username: 'orionluettgen',
+    avatar: 'https://fakeimg.pl/40x40?text=User'
+  },
+  {
+    id: 2,
+    name: 'Orion Luettgen',
+    username: 'orionluettgen',
+    avatar: 'https://fakeimg.pl/40x40?text=User'
+  },
+  {
+    id: 3,
+    name: 'Orion Luettgen',
+    username: 'orionluettgen',
+    avatar: 'https://fakeimg.pl/40x40?text=User'
   }
-}
+])
 </script>
-
-<style scoped>
-/* Scoped styles specific to CustomerList.vue */
-</style>

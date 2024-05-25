@@ -1,13 +1,8 @@
 <template>
   <div class="bg-white rounded-lg p-4 flex justify-between items-center mb-4">
     <div class="relative w-full">
-      <form class="flex w-full">
-        <label
-          for="default-search"
-          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
-          >Search</label
-        >
-        <div class="relative w-84">
+      <form class="flex">
+        <div class="relative">
           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg
               class="w-4 h-4 text-gray-500 dark:text-gray-400"
@@ -34,14 +29,14 @@
           />
         </div>
       </form>
-      <font-awesome-icon class="absolute left-3 top-3 text-gray-400" icon="bell" />
     </div>
     <button class="flex items-center mx-5 px-4 py-2 bg-blue-600 text-white rounded-lg">
-      <font-awesome-icon icon="add" class="mr-2" /> Create
+      <Plus class="mr-2" :size="20" />
+      Create
     </button>
     <div class="flex icon-list">
-      <font-awesome-icon class="text-gray-400 mx-3" icon="message" />
-      <font-awesome-icon class="text-gray-400 ml-3" icon="message" />
+      <MessageSquareText class="mx-3 text-slate-400 cursor-pointer" :size="20" />
+      <BellIcon class="mx-3 text-slate-400 cursor-pointer" :size="20" />
     </div>
     <div class="flex items-center mr-4 ml-2">
       <i class="fas fa-bell text-gray-600 text-xl"></i>
@@ -54,8 +49,9 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { faAdd } from '@fortawesome/free-solid-svg-icons'
 import { library } from '@fortawesome/fontawesome-svg-core'
 library.add(faAdd)
+import { Plus, MessageSquareText, BellIcon } from 'lucide-vue-next'
 </script>

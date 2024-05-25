@@ -15,42 +15,51 @@
           class="group flex items-center justify-between gap-4 rounded-lg border-2 border-slate-200 px-6 py-2 m-2 text-black-600 transition-colors hover:bg-indigo-600 focus:outline-none focus:ring active:bg-indigo-500"
         >
           <span class="font-medium transition-colors group-hover:text-white"> Follow </span>
-          <font-awesome-icon class="group-hover:text-white" icon="add" />
+          <Plus class="group-hover:text-white" :size="20" />
         </button>
         <button
           class="group flex items-center justify-between gap-4 rounded-lg border border-slate-200 px-6 py-2 text-black-600 transition-colors hover:bg-indigo-600 focus:outline-none focus:ring active:bg-indigo-500"
         >
-          <span class="font-medium transition-colors group-hover:text-white"> Message</span
-          ><font-awesome-icon class="group-hover:text-white" icon="message" />
+          <span class="font-medium transition-colors group-hover:text-white"> Message</span>
+          <MessageSquareTextIcon class="group-hover:text-white" :size="20" />
         </button>
       </div>
     </div>
 
     <div class="mb-4">
-      <span class="text-slate-800 font-semibold">Private note</span>
+      <span class="flex items-center text-slate-800 font-semibold"
+        >Private note <CircleAlert class="text-slate-500 ml-3" :size="20"
+      /></span>
+
       <div class="mt-3 h-40">
         <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
       </div>
     </div>
 
-    <div class="flex items-center mb-4">
-      <i class="fas fa-envelope text-slate-800"></i>
+    <div class="space-y-4 divide-y mb-6">
+      <div class="flex items-center space-x-4">
+        <Mail class="text-slate-500" :size="20" /><span
+          class="ml-2 text-black font-semibold cursor-pointer"
+          >fahey.designer@robot.co</span
+        >
+      </div>
 
-      <span class="ml-2 text-slate-800">
-        <font-awesome-icon class="group-hover:text-slate-400" icon="mail" />
-        fahey.designer@robot.co</span
-      >
-    </div>
+      <div class="flex items-center space-x-7">
+        <Twitter class="text-slate-500 mt-4 cursor-pointer" :size="20" />
+        <Instagram class="text-slate-500 mt-4 cursor-pointer" :size="20" />
+        <Facebook class="text-slate-500 mt-4 cursor-pointer" :size="20" />
+      </div>
 
-    <div class="flex items-center space-x-4 mb-4">
-      <i class="fas fa-link text-gray-600"></i>
-      <a href="http://test-link.com" class="text-blue-600">robot.co</a>
+      <div class="flex items-center space-x-4">
+        <Link2 class="text-slate-500 mt-4" :size="20" />
+        <a href="http://test-link.com" class="text-black font-semibold mt-4">robot.co</a>
+      </div>
     </div>
 
     <div class="overflow-x-auto">
       <table class="table-auto w-full">
-        <thead class="text-xs font-semibold text-gray-400 bg-gray-50">
-          <tr class="border-b border-slate-200 mb-2">
+        <thead class="text-sm font-semibold text-gray-400 bg-gray-50">
+          <tr class="border-b border-slate-200 mb-3">
             <th class="p-2 whitespace-nowrap">
               <div class="font-semibold text-left">Product</div>
             </th>
@@ -100,40 +109,52 @@
   height: 100px !important;
 }
 </style>
-<script>
-import { faAdd, faMessage } from '@fortawesome/free-solid-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core'
+<script setup>
+import { ref } from 'vue'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+import {
+  Plus,
+  MessageSquareTextIcon,
+  Link2,
+  Mail,
+  Twitter,
+  Instagram,
+  Facebook,
+  CircleAlert
+} from 'lucide-vue-next'
 
-library.add(faAdd, faMessage)
+//CKEDITOR
+const editor = ref(ClassicEditor)
+const editorData = ref('')
+const editorConfig = ref({
+  toolbar: ['bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote']
+})
 
-export default {
-  data() {
-    return {
-      products: [
-        {
-          id: 1,
-          title: 'Product title',
-          link: 'http://test-link.com',
-          image: 'https://fakeimg.pl/40x40?text=User',
-          price: '$64.00',
-          date: 'Apr 9, 2021'
-        },
-        {
-          id: 2,
-          title: 'Product title',
-          link: 'http://test-link.com',
-          image: 'https://fakeimg.pl/40x40?text=User',
-          price: '$64.00',
-          date: 'Apr 9, 2021'
-        }
-      ],
-      editor: ClassicEditor,
-      editorData: '',
-      editorConfig: {
-        toolbar: ['bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote']
-      }
-    }
+//Product list
+const products = ref([
+  {
+    id: 1,
+    title: 'Product title',
+    link: 'http://test-link.com',
+    image: 'https://fakeimg.pl/40x40?text=User',
+    price: '$64.00',
+    date: 'Apr 9, 2021'
+  },
+  {
+    id: 2,
+    title: 'Product title',
+    link: 'http://test-link.com',
+    image: 'https://fakeimg.pl/40x40?text=User',
+    price: '$64.00',
+    date: 'Apr 9, 2021'
+  },
+  {
+    id: 2,
+    title: 'Product title',
+    link: 'http://test-link.com',
+    image: 'https://fakeimg.pl/40x40?text=User',
+    price: '$64.00',
+    date: 'Apr 9, 2021'
   }
-}
+])
 </script>
