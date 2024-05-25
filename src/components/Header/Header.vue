@@ -30,8 +30,8 @@
         </div>
       </form>
     </div>
-    <button class="flex items-center mx-5 px-4 py-2 bg-blue-600 text-white rounded-lg">
-      <Plus class="mr-2" :size="20" />
+    <button class="flex items-center mx-5 px-4 py-2 bg-blue-500 text-white rounded-xl">
+      <Plus class="mr-2 text-white" :size="20" />
       Create
     </button>
     <div class="flex icon-list">

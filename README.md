@@ -1,5 +1,7 @@
 ## Installation Guide
 
+![alt text](https://github.com/sarveshcchauhan/core-dashboard-vue/blob/main/CoreDashboard.png?raw=true)
+
 ```bash
   git clone https://github.com/sarveshcchauhan/core-dashboard-vue
 
